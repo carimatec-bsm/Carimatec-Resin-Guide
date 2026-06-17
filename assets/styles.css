@@ -1,0 +1,60 @@
+body { font-family: 'Inter', 'Noto Sans KR', sans-serif; -webkit-font-smoothing: antialiased; }
+#detail-view { transition: all 0.3s ease-in-out; }
+.material-btn { transition: all 0.2s ease; cursor: pointer; }
+.material-btn.active { box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); transform: scale(1.05); }
+.category-tab.active { background-color: white !important; color: #1e293b !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.zoom-badge { animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+.font-bold { font-weight: 700 !important; }
+.material-btn:hover { filter: brightness(0.9); }
+
+/* 투명/클리어 디자인 */
+.color-dot-clear {
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    position: relative;
+}
+.color-dot-transparent {
+    background-color: #f8fafc;
+    background-image: repeating-conic-gradient(#cbd5e1 0% 25%, #ffffff 0% 50%);
+    background-position: 50% 50%;
+    background-size: 4px 4px;
+}
+.cl-label {
+    font-size: 8px;
+    color: #475569;
+    margin-top: 2px;
+    line-height: 1;
+}
+.chart-container { transition: box-shadow 0.25s ease, transform 0.25s ease, opacity 0.3s ease; }
+
+/* 카드 hover 마이크로 인터랙션 */
+#radar-container:hover, #ss-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -14px rgba(15, 23, 42, 0.25);
+}
+
+/* 표 행 hover 강조 */
+#material-table tbody tr:hover td { background-color: #f1f5f9; }
+
+/* 소재 버튼: 줄바꿈 시 높이 통일 (필터 시 .hidden 우선되도록 :not으로 한정) */
+.material-btn:not(.hidden) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 46px;
+    line-height: 1.25;
+}
+
+/* 모바일: 물성 비교표의 첫 열(물성명) 고정 — 가로 스크롤 시에도 항목명이 보이게 */
+@media (max-width: 767px) {
+    #material-table th:first-child,
+    #material-table td:first-child {
+        position: sticky;
+        left: 0;
+        background: #ffffff;
+        box-shadow: 1px 0 0 #e2e8f0;
+    }
+    #material-table tbody tr.bg-slate-50 td:first-child { background: #f8fafc; }
+    #material-table thead th:first-child { background: #f1f5f9; }
+}
